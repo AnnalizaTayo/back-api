@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, '../public')));
 
 
-const sessionOption = {
+/* const sessionOption = {
   secret: '$2b$10$sC1HaYYLps/oXmCbyYxkcOtTI1IwAJ7Vrhn1OUOKhrTTS71c/16Tm',
   cookie: {
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
@@ -46,9 +46,17 @@ const sessionOption = {
   },
   resave: true,
   saveUninitialized: true
-}
+} */
 
-app.use(session());
+app.use(session({
+  secret: '$2b$10$sC1HaYYLps/oXmCbyYxkcOtTI1IwAJ7Vrhn1OUOKhrTTS71c/16Tm',
+  cookie: {
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7
+  },
+  resave: true,
+  saveUninitialized: true
+}));
 
 
 //Passport Configuration
