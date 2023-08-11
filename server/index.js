@@ -27,7 +27,7 @@ connectDB();
 
 app.use(logger);
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -48,7 +48,7 @@ const sessionOption = {
   saveUninitialized: true
 }
 
-app.use(session(sessionOption));
+app.use(session());
 
 
 //Passport Configuration
@@ -82,7 +82,7 @@ app.use(errorHandler);
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
-  app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+  /* app.listen(PORT, () => console.log(`Server started on port ${PORT}`)); */
 });
 
 mongoose.connection.on('error', err => {
