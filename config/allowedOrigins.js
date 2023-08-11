@@ -1,5 +1,5 @@
 const allowedOrigins = [
-    'http://localhost:5001'
+    'https://houseofj-api.onrender.com/'
 ];
 
 module.exports = allowedOrigins;
